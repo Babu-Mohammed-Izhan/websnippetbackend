@@ -10,6 +10,12 @@ app.get("/", (req, res) => {
   res.json("Hello There");
 });
 
+app.post("/", (req, res) => {
+  console.log(req.body);
+
+  res.json("Post Request");
+});
+
 app.listen(3001, () => {
   console.log("Connected server to PORT 3001");
 });
