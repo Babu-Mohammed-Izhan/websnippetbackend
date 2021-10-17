@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const Snippet = require("./models/snippet");
 
 app.use(cors());
 app.use(express.json());
@@ -10,7 +11,9 @@ app.get("/", (req, res) => {
   res.json("Hello There");
 });
 
-app.get("/api/snip", (req, res) => {
+app.get("/api/snip", async (req, res) => {
+  const data = await Snippet.find({});
+  console.log(data);
   res.json("Hello There");
 });
 
