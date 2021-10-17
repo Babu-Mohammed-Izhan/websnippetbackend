@@ -10,7 +10,11 @@ app.get("/", (req, res) => {
   res.json("Hello There");
 });
 
-app.post("/", (req, res) => {
+app.get("/api/snip", (req, res) => {
+  res.json("Hello There");
+});
+
+app.post("/api/snip", (req, res) => {
   console.log(req.body);
 
   res.json("Post Request");
