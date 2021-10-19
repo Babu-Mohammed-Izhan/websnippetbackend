@@ -17,10 +17,21 @@ app.get("/api/snip", async (req, res) => {
   res.json("Hello There");
 });
 
-app.post("/api/snip", (req, res) => {
+app.post("/api/snip", async (req, res) => {
+  const snipdata = req.body;
   console.log(req.body);
+  if (snipdata) {
+    const snippet = new Snippet({
+      title: snipdata.title,
+      language: snipdata.language,
+      code: snipdata.code,
+      author: snipdata.author,
+    });
 
-  res.json("Post Request");
+    const savedsnippet = await snippet.save();
+
+    res.json(savedsnippet);
+  }
 });
 
 app.listen(3001, () => {
