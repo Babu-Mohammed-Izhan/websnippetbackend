@@ -13,8 +13,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/snip", async (req, res) => {
   const data = await Snippet.find({});
-  console.log(data);
-  res.json("Hello There");
+  res.json(data);
 });
 
 app.post("/api/snip", async (req, res) => {
