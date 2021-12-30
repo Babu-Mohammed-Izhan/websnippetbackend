@@ -33,6 +33,6 @@ app.post("/api/snip", async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
-  console.log("Connected server to PORT 3001");
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Connected server to PORT ${process.env.PORT}`);
 });
